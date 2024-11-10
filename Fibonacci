@@ -1,0 +1,53 @@
+# Fibonnaci : Recursive and Non recursive:
+def fibonacci_recursive(n):
+    # Recursive function for Fibonacci series
+    if n <= 1:
+        return n
+    else:
+        return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+def fibonacci_non_recursive(n):
+    # Non-recursive function for Fibonacci series
+    series = []
+    a, b = 0, 1
+    for _ in range(n):
+        series.append(a)
+        a, b = b, a + b
+    return series
+
+def display_fibonacci_recursive(total_elements):
+    # Generate Fibonacci series using recursion
+    series = [fibonacci_recursive(i) for i in range(total_elements)]
+    print("Fibonacci Series (Recursive):", series)
+
+def display_fibonacci_non_recursive(total_elements):
+    # Generate Fibonacci series using non-recursive approach
+    series = fibonacci_non_recursive(total_elements)
+    print("Fibonacci Series (Non-Recursive):", series)
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Fibonacci Series (Recursive)")
+        print("2. Fibonacci Series (Non-Recursive)")
+        print("3. Exit")
+        
+        choice = input("Enter your choice (1-3): ")
+        
+        if choice == '1':
+            total_elements = int(input("Enter the number of elements for the Fibonacci series: "))
+            display_fibonacci_recursive(total_elements)
+        
+        elif choice == '2':
+            total_elements = int(input("Enter the number of elements for the Fibonacci series: "))
+            display_fibonacci_non_recursive(total_elements)
+        
+        elif choice == '3':
+            print("Exiting the program.")
+            break
+        
+        else:
+            print("Invalid choice. Please enter a valid option.")
+
+if __name__ == "__main__":
+    main()
